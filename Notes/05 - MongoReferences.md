@@ -1,6 +1,6 @@
 # MongoDB
 
-## Mongo Scheme
+## Mongo References
 
 ### Example with Embedded Documents
 
