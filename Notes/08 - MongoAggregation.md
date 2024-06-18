@@ -176,3 +176,32 @@ db.products.aggregate([
 
 
 ```
+
+#### Pipeline
+
+##### Sequence of stages or steps that are applied sequentially to data to perform aggregation operations. 
+
+##### Una serie de etapas o pasos que se aplican secuencialmente a los datos para realizar operaciones de agregación
+
+_Example_
+
+```mongodb
+db.products.aggregate([
+  {
+    $group: {
+      _id: "$name",
+      totalStock: { $sum: "$stock" }
+    }
+  },
+  {
+    $project: {
+      productName: "$_id",
+      totalStock: 1,
+      _id: 0
+    }
+  },
+  {
+    $sort: { totalStock: -1 }
+  }
+])
+```
